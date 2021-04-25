@@ -1,4 +1,4 @@
-import { Form, Input, Button, Checkbox,Card ,Row, Col  } from 'antd';
+import { Form, Input, Button,Card ,Row, Col  } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../styles/login.css';
 import { useEffect, useState } from 'react';

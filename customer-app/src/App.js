@@ -5,8 +5,12 @@ import About from './page/about';
 import Login from './page/login';
 import Home from './page/home';
 import Register from './page/register';
+import Other from './page/other';
 
 import MyRote from './router/router'
+
+import { Provider } from 'react-redux'
+import store from './store/index'
 
 
 import './App.css'
@@ -20,6 +24,8 @@ export default class App extends React.Component {
     render() {
       return (
         
+       <Provider store={store}>
+
        
         <Router>
         <Switch>
@@ -36,6 +42,7 @@ export default class App extends React.Component {
           <MyRote path="/about" exact component={About}></MyRote>
           <Route path="/login" exact component={Login}></Route>
           <Route path="/register" exact component={Register}></Route>
+          <Route path="/other" exact component={Other}></Route>
           <Route path="/" exact component={Home}></Route>
           
           
@@ -43,6 +50,7 @@ export default class App extends React.Component {
           
         </Switch>
     </Router>
+     </Provider>
       );
     }
   }

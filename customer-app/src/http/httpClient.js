@@ -5,6 +5,7 @@
 
  axios.defaults.timeout = 100000;
  axios.defaults.baseURL = "https://app.waterdropfilter.com/api/auth";
+// axios.defaults.baseURL ="http://localhost:3000/"
  axios.defaults.headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":"X-Requested-With,Content-Type",
@@ -49,6 +50,7 @@
   * @returns {Promise}
   */
  export function get(url, params = {}) {
+   console.log(params)
    return new Promise((resolve, reject) => {
      axios.get(url, {
          params: params,

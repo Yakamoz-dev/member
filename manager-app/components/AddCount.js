@@ -5,7 +5,6 @@ import { addCount } from '../store/count/action'
 
 const AddCount = ({ count, addCount }) => {
   return (
-    
     <div>
       <style jsx>{`
         div {

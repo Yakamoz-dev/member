@@ -13,14 +13,18 @@ const Login = () => {
   };
   const [email,setEmail] = useState()
   const [password,setPassword] = useState()
+  let inFifteenMinutes = new Date(new Date().getTime() + 24 * 3600 * 1000);//一天
 
  const data = ({email,password})
+
+//  var millisecond = new Date().getTime();
+// var expiresTime = new Date(millisecond + 60 * 1000 * 3);
 
   const postLogin = () => {
     postLoginApi(data).then(
       (res) => {
           console.log("get article response:", res);
-          cookie.save('token',res.access_token)
+          cookie.save('token',res.access_token,{expires:inFifteenMinutes})
           router.push('/')
       },
      (error) => {

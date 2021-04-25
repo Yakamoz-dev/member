@@ -14,13 +14,15 @@ const Login = () => {
   const [email,setEmail] = useState()
   const [password,setPassword] = useState()
 
+  let inFifteenMinutes = new Date(new Date().getTime() + 24 * 3600 * 1000);//一天
+
  
 
   const postLogin = () => {
     postLoginApi({email,password}).then(
       (res) => {
           console.log("get article response:", res);
-          cookie.save('api_token',res.access_token)
+          cookie.save('api_token',res.access_token,{expires:inFifteenMinutes})
           history.push("/about");
       },
      (error) => {
@@ -79,7 +81,7 @@ const Login = () => {
         />
       </Form.Item>
       <Form.Item labelAlign='right'>
-        <a className="login-form-forgot" href="" style={{width:'100%',textAlign:'right',display:'inline-block'}}>
+        <a className="login-form-forgot" href="" style={{width:'100%',textAlign:'right',display:'inline-block'}} onClick={(event)=>{event.preventDefault();history.push("/other");}}>
           Forgot password
         </a>
       </Form.Item>

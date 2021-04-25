@@ -10,7 +10,7 @@ const LayoutEx = ({children})=> {
     return (
         <>
         <Layout style={{ minHeight: '100vh' }}>
-            <Sider collapsible >
+            <Sider collapsible style={{paddingBottom:0}}>
                 <MenuExport  />
             </Sider>
             <Layout>

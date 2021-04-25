@@ -10,13 +10,16 @@ import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-const key = '3'
+import dynamic from 'next/dynamic'
+const BasePage = dynamic(() => import('../components/BasePage'))
+
+
 
 function ToLogin(){
   const router = useRouter()
   useEffect(()=>{
     router.push('/login')
-  })
+  },[])
   return (
     <></>
   )
@@ -27,7 +30,7 @@ function ChooseItem({item}){
   if (item == '1') {
     Cmp =<Link href="/home" >123</Link>;
   } else {
-    Cmp = <Link href="/home" >234</Link>;
+    Cmp = <BasePage />;
   }
 
   return Cmp
@@ -36,6 +39,7 @@ function ChooseItem({item}){
 
 const Home=({defKey})=>{
   const token = cookie.load('token')
+  console.log(token)
   return (
     <>
     {

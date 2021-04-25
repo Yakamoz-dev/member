@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 
 
-import { Tabs,Row,Col,Button } from 'antd';
+import { Tabs,Row,Col,Button,Drawer } from 'antd';
 
 import { posUserApi } from '../http/api';
 import cookie from 'react-cookies';
@@ -15,16 +15,37 @@ import '../locale/index';
 import intl from 'react-intl-universal';
 
 
+import store from '../store'
+import { connect} from 'react-redux'
+import {changeStatus} from '../store/actionCreater'
+
+import GifList from '../components/aboutItem'
+
+
+
 const { TabPane } = Tabs;
 
 function callback(key) {
   console.log(key);
 }
 
-const About = () => {
+const About = ({state,changeStatusDate}) => {
     let history = useHistory();
 
     const [user,setUser] = useState([]);
+
+
+    const [visible,setVisible] = useState(false)
+    const showDrawer = () => {
+        setVisible(!visible)
+    };
+
+    const onClose = () => {
+        setVisible(!visible)
+    };
+
+
+
     const token = cookie.load('api_token')
 
     const changeLanguage = ()=>{
@@ -56,6 +77,8 @@ const About = () => {
 
 return(
         <>
+            <Button onClick={showDrawer}>open</Button>
+            <div onClick={changeStatusDate}>{state}</div>
             <Row gutter={[24, 24]}>
                 <Col span={24} offset={0}>
                     <div style={{backgroundColor:'#e5e5e5',height:'40px',display: 'flex',
@@ -81,6 +104,7 @@ return(
                                 <p>Content of Tab Pane 1</p>
                             </TabPane>
                             <TabPane tab="Tab Title 2" key="2">
+                                <GifList />
                                 <p>Content of Tab Pane 2</p>
                                 <p>Content of Tab Pane 2</p>
                                 <p>Content of Tab Pane 2</p>
@@ -95,8 +119,32 @@ return(
                 </Col>
             </Row>
             <Button onClick={changeLanguage}>{intl.get('changeText')}</Button>
+
+            <Drawer
+                title="Basic Drawer"
+                placement="right"
+                closable={true}
+                onClose={onClose}
+                visible={visible}
+                getContainer={false}
+                style={{ position: 'absolute' }}
+            ></Drawer>
         </>
 )};
 
 
-export default About
+const mapStateToProps =(state)=>{
+    return {
+        state:state.status
+    }
+}
+
+const mapDispatchToProps =(dispatch)=>{
+    return{
+        changeStatusDate(){
+            const action=changeStatus(2)
+             dispatch(action)
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(About);//和store做连接
