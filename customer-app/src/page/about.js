@@ -74,9 +74,15 @@ const About = ({state,changeStatusDate}) => {
     useEffect(()=>{
         posUser()
     },[])
-
+    const url = encodeURIComponent('https://www.facebook.com/sharer/sharer.php?u=https://www.baidu.com')
 return(
-        <>
+        <>  
+        <div>
+            <a target="_break" href='https://www.facebook.com/sharer/sharer.php?u=https://www.baidu.com'>facebook</a>
+            <a target="_break" href='https://twitter.com/intent/tweet?text=123321&url=https://www.baidu.com'>twitter</a>
+            <a target="_break" href='https://www.pinterest.com/pin/create/button/?url==https://www.baidu.com&description=123321'>Pinterest</a>
+        </div>
+            
             <Button onClick={showDrawer}>open</Button>
             <div onClick={changeStatusDate}>{state}</div>
             <Row gutter={[24, 24]}>

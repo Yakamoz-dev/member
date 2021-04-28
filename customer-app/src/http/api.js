@@ -122,7 +122,63 @@ function getAddPoints(data){
   }) 
 }
 
+//兑换礼品 postRedeemgift
+function postRedeemgift(data){
+  return new Promise((resolve, reject) => {
+      http('post','/redeemgift',data).then(res => {
+       
+            resolve (res);
+        
+      },error => {
+        console.log("网络异常~",error);
+        reject(error)
+      })
+  }) 
+}
+//获取个人地址列表 getAddresses
+function getAddresses(data){
+  return new Promise((resolve, reject) => {
+      http('get','/getaddresses',data).then(res => {
+       
+            resolve (res);
+        
+      },error => {
+        console.log("网络异常~",error);
+        reject(error)
+      })
+  }) 
+}
+//新增、编辑地址信息 editaddress
+function posEditaddress(data){
+  return new Promise((resolve, reject) => {
+      http('post','/editaddress',data).then(res => {
+       
+            resolve (res);
+        
+      },error => {
+        console.log("网络异常~",error);
+        reject(error)
+      })
+  }) 
+}
+
+
+//根据地址ID获取地址详细信息 getaddress
+function getAddress(data){
+  return new Promise((resolve, reject) => {
+      http('get','/getaddress',data).then(res => {
+       
+            resolve (res);
+        
+      },error => {
+        console.log("网络异常~",error);
+        reject(error)
+      })
+  }) 
+}
+
 export {
   postRegisterApi,postLoginApi,posUserApi,postEmailApi,postPassword,
-  getGifList,getPointsList,getMakeUrl,getAddPoints
+  getGifList,getPointsList,getMakeUrl,getAddPoints,
+  getAddress,posEditaddress,getAddresses,postRedeemgift
 }

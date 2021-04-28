@@ -4,7 +4,7 @@
  import axios from "axios";
 
  axios.defaults.timeout = 100000;
- axios.defaults.baseURL = "https://app.waterdropfilter.com/api/auth";
+ axios.defaults.baseURL = "https://member.waterdropfilter.com/api/auth";
 // axios.defaults.baseURL ="http://localhost:3000/"
  axios.defaults.headers = {
   "Access-Control-Allow-Origin": "*",

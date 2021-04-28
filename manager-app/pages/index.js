@@ -14,6 +14,9 @@ import dynamic from 'next/dynamic'
 const BasePage = dynamic(() => import('../components/BasePage'))
 
 
+import Saber from '../components/Saber'
+
+
 
 function ToLogin(){
   const router = useRouter()
@@ -28,7 +31,7 @@ function ToLogin(){
 function ChooseItem({item}){
   let Cmp
   if (item == '1') {
-    Cmp =<Link href="/home" >123</Link>;
+    Cmp =(<div><Link href="/home" >123</Link><Saber /></div>);
   } else {
     Cmp = <BasePage />;
   }
@@ -43,10 +46,10 @@ const Home=({defKey})=>{
   return (
     <>
     {
-      token ? <LayoutEx>
+      <LayoutEx>
                   <ChooseItem item={defKey} />
               </LayoutEx>
-      :<ToLogin />
+      
     }
     </>
   )

@@ -4,14 +4,8 @@ import '../styles/global.css'
 
 
 import { wrapper } from '../store/store'
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
-import cookie from 'react-cookies'
-
-const token = cookie.load('api_token')
 const MyApp = ({ Component, pageProps }) => {
-  const router  = useRouter()
   // useEffect(() => {
   //   const handleRouteChange = (url, { shallow }) => {
   //     if(!token && url !== '/login'){
