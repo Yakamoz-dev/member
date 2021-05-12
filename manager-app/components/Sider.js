@@ -29,8 +29,8 @@ const MenuExport = ({ defkey,chooseSider})=>{
             <Menu.Item key="2">Option 2</Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="Item 2">
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
+            <Menu.Item key="3">礼品卡</Menu.Item>
+            <Menu.Item key="4">折扣码</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
         <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">

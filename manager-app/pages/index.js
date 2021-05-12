@@ -13,8 +13,11 @@ import { bindActionCreators } from 'redux'
 import dynamic from 'next/dynamic'
 const BasePage = dynamic(() => import('../components/BasePage'))
 
+const GiftList = dynamic(() => import('../components/giftCard/index'))
 
-import Saber from '../components/Saber'
+// const ProductsList = dynamic(() => import('../components/GiftCard'))
+
+
 
 
 
@@ -30,11 +33,29 @@ function ToLogin(){
 
 function ChooseItem({item}){
   let Cmp
-  if (item == '1') {
-    Cmp =(<div><Link href="/home" >123</Link><Saber /></div>);
-  } else {
-    Cmp = <BasePage />;
-  }
+  switch(item) {
+    case '1':
+      Cmp =(<div><Link href="/home" >123</Link></div>);
+       break;
+    case '2':
+      Cmp = <BasePage />;
+       break;
+    case '3':
+      Cmp = (
+        <div>
+          <GiftList/>
+          
+        </div>
+      );
+      break;
+    default:
+      Cmp =(<div><Link href="/home" >123</Link></div>);
+} 
+  // if (item == '1') {
+  //   Cmp =(<div><Link href="/home" >123</Link><GiftCard /></div>);
+  // } else {
+  //   Cmp = <BasePage />;
+  // }
 
   return Cmp
 

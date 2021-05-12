@@ -8,6 +8,7 @@ import cookie from 'react-cookies'
 import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
+
  const BasePage = () => {
   const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBwLndhdGVyZHJvcGZpbHRlci5jb21cL2FwaVwvYWRtaW5cL2xvZ2luIiwiaWF0IjoxNjE5NDA0MzIwLCJleHAiOjE2MTk2MjAzMjAsIm5iZiI6MTYxOTQwNDMyMCwianRpIjoiaHpOOWNoU2VzekZxbDU5NiIsInN1YiI6MSwicHJ2IjoiZGY4ODNkYjk3YmQwNWVmOGZmODUwODJkNjg2YzQ1ZTgzMmU1OTNhOSIsInJvbGUiOiJhZG1pbiJ9.LbYwkJ0BxcGE2NWVF3Gidcw_Pfx6TtpmNzDfRsEFs9Q'
   // const [email,setEmail] = useState()
