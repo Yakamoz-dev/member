@@ -3,6 +3,7 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { chooseSider } from '../store/sider/action'
+import { useState } from 'react'
 
 
 const { SubMenu } = Menu;
@@ -10,7 +11,8 @@ const { SubMenu } = Menu;
 
 
 const MenuExport = ({ defkey,chooseSider})=>{
-  console.log(defkey)
+  const [Deekey ,setDeekey] = useState(defkey)
+  console.log('7',defkey)
   const handleClick = e => {
     console.log('click ', e);
     console.log(chooseSider(e.key))
@@ -19,7 +21,7 @@ const MenuExport = ({ defkey,chooseSider})=>{
         <Menu
         onClick={handleClick}
         style={{ height: '100vh' }}
-        defaultSelectedKeys={defkey}
+        defaultSelectedKeys={Deekey}
         defaultOpenKeys={['sub1']}
         mode="inline"
       >
@@ -34,7 +36,7 @@ const MenuExport = ({ defkey,chooseSider})=>{
           </Menu.ItemGroup>
         </SubMenu>
         <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-          <Menu.Item key="5">Option 5</Menu.Item>
+          <Menu.Item key="5">Shopify App Bridge</Menu.Item>
           <Menu.Item key="6">Option 6</Menu.Item>
           <SubMenu key="sub3" title="Submenu">
             <Menu.Item key="7">Option 7</Menu.Item>

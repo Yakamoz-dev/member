@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -15,7 +16,10 @@ const BasePage = dynamic(() => import('../components/BasePage'))
 
 const GiftList = dynamic(() => import('../components/giftCard/index'))
 
-// const ProductsList = dynamic(() => import('../components/GiftCard'))
+const Bridge = dynamic(() => import('../components/Bridge'))
+
+const Tagscript = dynamic(() => import('../components/Tagscript'))
+
 
 
 
@@ -35,7 +39,7 @@ function ChooseItem({item}){
   let Cmp
   switch(item) {
     case '1':
-      Cmp =(<div><Link href="/home" >123</Link></div>);
+      Cmp =(<div><Link href="/home" >123</Link><Tagscript /></div>);
        break;
     case '2':
       Cmp = <BasePage />;
@@ -44,6 +48,14 @@ function ChooseItem({item}){
       Cmp = (
         <div>
           <GiftList/>
+          
+        </div>
+      );
+      break;
+    case '5':
+      Cmp = (
+        <div>
+          <Bridge/>
           
         </div>
       );
@@ -66,12 +78,11 @@ const Home=({defKey})=>{
   console.log(token)
   return (
     <>
-    {
       <LayoutEx>
-                  <ChooseItem item={defKey} />
-              </LayoutEx>
+          <ChooseItem item={defKey} />
       
-    }
+          </LayoutEx>
+    
     </>
   )
 }
@@ -87,3 +98,43 @@ const mapStateToProps = (state) => ({
 // }
 
 export default connect(mapStateToProps)(Home)
+
+
+
+// import { Heading, Page } from "@shopify/polaris";
+// import Link from 'next/link'
+// import { connect } from 'react-redux'
+// import { bindActionCreators } from 'redux'
+// import { chooseSider } from '../store/sider/action'
+// import { useRouter } from 'next/router'
+// import {Button} from 'antd'
+
+// const Index = ({defkey,chooseSider}) => {
+//   const router = useRouter()
+//   console.log(defkey)
+//   const handleClick = e => {
+//     console.log(chooseSider('8'))
+//     router.push('/user')
+//   };
+
+
+//   return(
+//   <Page>
+//     <Heading>Shopify app with  order🎉</Heading>
+//     <Button  onClick={handleClick} >
+//       user
+//     </Button>
+//   </Page>
+// )};
+
+// const mapStateToProps = (state) => ({
+//   defkey: state.sider.key,
+// })
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     chooseSider: bindActionCreators(chooseSider, dispatch),
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Index)

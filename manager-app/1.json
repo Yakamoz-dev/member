@@ -258,7 +258,7 @@ ctx.req :   <ref *2> IncomingMessage {
       host: '06d7a53fe079.ngrok.io',
       'user-agent': 'Shopify-Captain-Hook',
       'content-length': '4009',
-      accept: '*/*',
+      'accept': '*/*',
       'accept-encoding': 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
       'content-type': 'application/json',
       'x-forwarded-for': '34.72.100.188',

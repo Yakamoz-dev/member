@@ -10,6 +10,8 @@ const body =  require('koa-bodyparser');
 
 // const getSubscriptionUrl = require("./server/getSubscriptionUrl");
 
+const fs = require('fs')
+
 
 dotenv.config();
 
@@ -106,6 +108,59 @@ app.prepare().then(() => {
         ctx.res.statusCode = 200;
     };
 
+    // router.get('/scriptTag', async (ctx, next) => {
+    //   // const cb = await fs.readFileSync('./scriptTag.js')
+    //   ctx.response.body = fs.createReadStream('./lib/scriptTag.html')
+
+    //   // console.log(cb)
+    // })
+
+    
+    
+
+    
+    router.get('/orderdeta', async (ctx, next) => {
+      console.log('221');
+      let url = ctx.url;
+      let request = ctx.request;
+      let req_query = request.query;
+      let req_queryString = request.queryString;
+  
+      ctx.body={
+          url,
+          req_query,
+          req_queryString
+      }
+    })
+    router.get('/orderaction', async (ctx, next) => {
+      console.log('113');
+      let url = ctx.url;
+      let request = ctx.request;
+      let req_query = request.query;
+      let req_queryString = request.queryString;
+  
+      ctx.body={
+          url,
+          req_query,
+          req_queryString
+      }
+    })
+    router.get('/orderdraft', async (ctx, next) => {
+      console.log('331');
+      let url = ctx.url;
+      let request = ctx.request;
+      let req_query = request.query;
+      let req_queryString = request.queryString;
+  
+      ctx.body={
+          url,
+          req_query,
+          req_queryString
+      }
+    })
+
+
+    //webhook
     // router.post('/getorder', async (ctx, next) => {
     //   const rb =  ctx.request.body
     //   console.log(rb);
