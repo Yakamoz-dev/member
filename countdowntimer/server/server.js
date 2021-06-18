@@ -45,11 +45,11 @@ app.prepare().then(async () => {
         const host = ctx.query.host;
         ACTIVE_SHOPIFY_SHOPS[shop] = scope;
 
-            // ctx.cookies.set('shopOrigin', shop, {
-            //   httpOnly: false,
-            //   secure: true,
-            //   sameSite: 'none',
-            // });
+            ctx.cookies.set('shopOrigin', shop, {
+              httpOnly: false,
+              secure: true,
+              sameSite: 'none',
+            });
             ctx.cookies.set('accessToken', accessToken, {
               httpOnly: false,
               secure: true,
@@ -86,14 +86,14 @@ app.prepare().then(async () => {
 
   router.get('/api', async (ctx) => {
        
-    // const shopOrigin = ctx.cookies.get('shopOrigin');
-    // const accessToken = ctx.cookies.get('accessToken');
-    const accessToken = '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';
+    const shopOrigin = ctx.cookies.get('shopOrigin');
+    const accessToken = ctx.cookies.get('accessToken');
+    // const accessToken = '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';
     const request = ctx.query.use;
     
     // console.log(ctx.params)
     // console.log(ctx.query)
-    const url = `https://try-mana.myshopify.com/admin/api/2021-04/${request}`;
+    const url = `https://${shopOrigin}/admin/api/2021-04/${request}`;
     // console.log(url);
     // console.log(accessToken);
 
@@ -120,12 +120,12 @@ app.prepare().then(async () => {
   });
 
   router.post('/api', async (ctx) => {
-      
+    const shopOrigin = ctx.cookies.get('shopOrigin');
     const accessToken = ctx.cookies.get('accessToken');
-    console.log('11111111',accessToken)
+    console.log('11111111',accessToken,shopOrigin)
     // const accessToken = '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';
     const request = ctx.query.use;
-    const url = `https://try-mana.myshopify.com/admin/api/2021-04/${request}`;
+    const url = `https://${shopOrigin}/admin/api/2021-04/${request}`;
     console.log(ctx.query)
     if(ctx.query.type == 1){
       console.log('99999999999')
