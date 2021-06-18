@@ -1,0 +1,15 @@
+.textcenter{
+    text-align: center;
+    font-size: 15px;
+}
+.buttonBox{
+    text-align: center;
+    margin-top: 2rem;
+}
+.antbtncj{
+    width: 120px;
+}
+.inputColor{
+    width: 50px;
+    height: 32px;
+}
